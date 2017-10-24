@@ -1,0 +1,34 @@
+@import '../../theme/palette';
+
+.feed {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: $paletteColor3;
+
+    .postEnter {
+        opacity: 0.01;
+
+    }
+    .postEnterActive {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+    }
+    .postAppear {
+        opacity: 0.01;
+
+    }
+    .postAppearActive {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+    }
+    .postDelete {
+        opacity: 1;
+    }
+    .postDeleteActive {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+}
