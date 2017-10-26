@@ -5,7 +5,7 @@ import moonIcon from '../../theme/assets/moon-icon.png';
 const Header = () => (
     <header>
         <div className = { Styles.content }>
-            <div className = { Styles.pullLeft }>
+            <div className = { Styles.moon }>
                 <img src = { moonIcon } />
                 <div className = { Styles.movies }>
                     Movies

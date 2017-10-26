@@ -20,9 +20,9 @@ export default class Cinema extends Component {
     render () {
 
         return (
-            <section className = { Styles.cinema }>
-                <h1>CINEMA</h1>
-            </section>
+            <div className = { Styles.cinema }>
+                <p>CINEMA</p>
+            </div>
         );
     }
 }

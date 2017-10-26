@@ -23,7 +23,20 @@ export default class CinemaList extends Component {
         return (
             <section className = { Styles.CinemaList }>
                 <h1>CINEMAList</h1>
-                <Cinema />
+                <div className = { Styles.content }>
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                    <Cinema />
+                </div>
             </section>
         );
     }
