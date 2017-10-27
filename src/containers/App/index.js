@@ -1,11 +1,5 @@
 // Core
 import React, { Component } from 'react';
-import { string } from 'prop-types';
-
-// Instruments
-import avatar from '../../theme/assets/avatar.jpg';
-import Feed from '../../components/Feed';
-import Catch from '../../components/Catch';
 
 // cinema
 import Header from '../../components/Header';
@@ -13,58 +7,40 @@ import Footer from '../../components/Footer';
 import CinemaList from '../../components/CinemaList';
 import CinemaDetails from '../../components/CinemaDetails';
 
-const api = 'http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=1';
-
-// export const options = {
-//     firstName: 'Max',
-//     lastName:  'Bels',
-//     avatar,
-//     api:       `https://lab.lectrum.io/feed/${groupID}`
-// };
-
 
 export default class App extends Component {
-    state = {
-        films: []
-    }
-    constructor () {
-        super();
-        this.getFilms = this._getFilms.bind(this);
-    }
+    // static childContextTypes = {
+    //     firstName: string.isRequired,
+    //     lastName:  string.isRequired,
+    //     avatar:    string.isRequired,
+    //     api:       string.isRequired
+    // }
+    // getChildContext () {
+    //     return {
+    //         firstName: options.firstName,
+    //         lastName:  options.lastName,
+    //         avatar:    options.avatar,
+    //         api:       options.api
+    //     };
+    // }
+    // constructor () {
+    //     super();
+    // }
 
-    componentWillMount () {
-        this.getFilms();
-        console.log(this.state.films)
-    }
+    // state = {
+    // }
+    // componentWillMount () {
+    // }
 
-    _getFilms () {
-        fetch(api, {
-            method: 'GET'
-        }).then((response) => {
-            if (response.status !== 200) {
-                throw new Error('post was not get');
-            }
-            return response.data.results.json();
-        })
-            .then(({ data }) =>
-                this.setState(() => ({
-                    films: data
-                }))
-            )
-            .catch(({ massage }) => console.log(massage));
-    }
 
     render () {
+
         return (
             <div>
                 <Header />
                 <CinemaList />
                 <CinemaDetails />
                 <Footer />
-
-                {/* <Catch>
-                    <Feed />
-                </Catch> */}
             </div>
         );
     }

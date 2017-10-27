@@ -1,39 +1,10 @@
 header {
     background: #474e5a;
-    padding: 5px 0;
-    .content {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        position: relative;
-        max-width: 53.125rem;
-        padding: 0.5rem;
-        left: 50%;
-        transform: translate(-50%, 0);
-        overflow: hidden;
-    }
     .movies {
       display: inline-block;
-      padding: 5px 0 0 5px;
+      padding: 5px 0 10px 5px;
       color: white;
-    }
-    .login {
-      // display: flex;
-      border: 1px solid grey;
-      border-radius: 5px;
-      padding: 5px;
-      color: lightgrey;
-      .account {
-        @media screen and (max-width: 750px) {
-          display: none;
-        }
-      }
-      i {
-        color: white;
-        margin-left: 5px;
-        @media screen and (max-width: 750px) {
-          margin-left: 0;
-        }
-      }
+      position: relative;
+      top: -5px;
     }
 }

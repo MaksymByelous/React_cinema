@@ -1,11 +1,17 @@
-.content {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    position: relative;
-    max-width: 53.125rem;
-    padding: 0.5rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-    overflow: hidden;
+
+.CinemaListWrapper {
+    .CinemaList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .btnDirections {
+        text-align: center;
+        button {
+            background: rgb(0, 89, 255);
+            color: white;
+            border: none;
+            margin: 10px 5px 0 5px;
+        }
+    }
 }
