@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Styles from './styles.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class CinemaDetails extends Component {
     static contextTypes = {
@@ -9,9 +9,9 @@ export default class CinemaDetails extends Component {
     static propTypes = {
 
     }
-    constructor () {
-        super();
-    }
+    // constructor () {
+    //     super();
+    // }
 
     state = {
 
