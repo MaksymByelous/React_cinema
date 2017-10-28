@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>0/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>0/16</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -73,65 +73,65 @@
 28
 29
 30
-31</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
+31</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const getUniqueID = (length) =&gt; {
-    let text = '';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const <span class="cstat-no" title="statement not covered" >getUniqueID = (length) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+    let text = <span class="cstat-no" title="statement not covered" >'';</span>
     const possible =
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+<span class="cstat-no" title="statement not covered" >        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567</span>89';
 &nbsp;
-    for (let i = 0; i &lt; length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+<span class="cstat-no" title="statement not covered" >    for (let i = 0; i &lt; length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        text += possible.charAt(Math.floor(Math.random() * possible.length));</span>
     }
 &nbsp;
-    return text;
+<span class="cstat-no" title="statement not covered" >    return text;</span>
 };
 &nbsp;
-export const getRandomColor = () =&gt; {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
+export const getRandomC<span class="cstat-no" title="statement not covered" >olor = () =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
+    const letters = <span class="cstat-no" title="statement not covered" >'0123456789ABCDEF';</span>
+    let color = <span class="cstat-no" title="statement not covered" >'#';</span>
 &nbsp;
-    for (let i = 0; i &lt; 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+<span class="cstat-no" title="statement not covered" >    for (let i = 0; i &lt; 6; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        color += letters[Math.floor(Math.random() * 16)];</span>
     }
 &nbsp;
-    return color;
+<span class="cstat-no" title="statement not covered" >    return color;</span>
 };
 &nbsp;
-export const getFullApiUrl = (api, groupID) =&gt; {
-    if (typeof api !== 'string' || typeof groupID !== 'string') {
-        throw new Error('api and group id is not a string');
+export const getFullAp<span class="cstat-no" title="statement not covered" >iUrl = (api, groupID) =&gt;<span class="fstat-no" title="function not covered" > {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (typeof api !== 'string' || typeof groupID !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('api and group id is not a string');</span>
     }
 &nbsp;
-    return `$(api)/$(groupID)`;
+<span class="cstat-no" title="statement not covered" >    return `$(api)/$(groupID)`;</span>
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -139,7 +139,7 @@ export const getFullApiUrl = (api, groupID) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 22 2017 17:39:04 GMT+0300 (EEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 29 2017 02:28:57 GMT+0300 (EEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`counter should correspond to snapshot 1`] = `
+<header>
+  <div
+    className={undefined}
+  >
+    <div>
+      <img
+        src="moon-icon.png"
+      />
+      <div
+        className={undefined}
+      >
+        Movies
+      </div>
+    </div>
+  </div>
+</header>
+`;

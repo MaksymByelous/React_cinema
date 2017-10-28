@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
-// import { func } from 'prop-types';
+import { func } from 'prop-types';
 import Cinema from '../../components/Cinema';
 
 
@@ -9,6 +9,10 @@ const apiNew = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca
 const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
 
 export default class CinemaList extends Component {
+
+    static propsTypes = {
+        showDetails: func.isRequired
+    }
 
     constructor () {
         super();
@@ -61,9 +65,10 @@ export default class CinemaList extends Component {
     }
 
     render () {
+        const { showDetails } = this.props;
         const { films } = this.state;
         const filmList = films.map(({ title, id, overview, poster_path }) =>
-            <Cinema key = { id } overview = { overview } posterPath = { poster_path } title = { title } />
+            <Cinema key = { id } overview = { overview } posterPath = { poster_path } showDetails = { showDetails } title = { title } />
         );
 
         return (

@@ -1,0 +1,36 @@
+.cinemaDetails {
+    background: rgba(71, 78, 90, 0.9);
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    color: white;
+    // height: 100vh;
+    .flexWrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .posterWrapper {
+        padding: 15px 10px;
+        max-width: 300px;
+    }
+    .textWrapper {
+        padding: 15px 10px;
+        max-width: 320px;
+    }
+    .btnBlock {
+        text-align: right;
+        button {
+            background: #4b6aa2;
+            cursor: pointer;
+            color: white;
+            border: none;
+            margin: 10px 5px 0 5px;
+            &:focus,
+            &:active {
+                outline: none;
+            }
+        }
+    }
+}
