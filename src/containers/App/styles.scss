@@ -1,0 +1,15 @@
+.content {
+    position: relative;
+    max-width: 53.125rem;
+    padding: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow: hidden;
+}
+header {
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+}
