@@ -8,10 +8,15 @@
     .btnDirections {
         text-align: center;
         button {
-            background: rgb(0, 89, 255);
+            background: #4b6aa2;
+            cursor: pointer;
             color: white;
             border: none;
             margin: 10px 5px 0 5px;
+            &:focus,
+            &:active {
+                outline: none;
+            }
         }
     }
 }
