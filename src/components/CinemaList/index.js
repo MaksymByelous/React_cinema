@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
-import { func } from 'prop-types';
+// import { func } from 'prop-types';
 import Cinema from '../../components/Cinema';
 
 
@@ -9,13 +9,7 @@ const apiNew = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca
 const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
 
 export default class CinemaList extends Component {
-    static contextTypes = {
-    }
-    static propTypes = {
-        getFilms:   func.isRequired,
-        getLatest:  func.isRequired,
-        getPopular: func.isRequired
-    }
+
     constructor () {
         super();
         this.getFilms = this._getFilms.bind(this);
@@ -24,7 +18,12 @@ export default class CinemaList extends Component {
     }
 
     state = {
-        films: []
+        films: [],
+        base:  'latest'
+    }
+
+    componentWillMount () {
+        this.getLatest();
     }
 
     _getFilms (direction) {
@@ -47,14 +46,25 @@ export default class CinemaList extends Component {
     }
 
     _getLatest () {
+        this.setState(() => ({
+            base: 'latest'
+        }));
+
         return this.getFilms(apiNew);
     }
     _getPopular () {
+        this.setState(() => ({
+            base: 'popular'
+        }));
+
         return this.getFilms(apiPopular);
     }
 
     render () {
         const { films } = this.state;
+        const filmList = films.map(({ title, id, overview, poster_path }) =>
+            <Cinema key = { id } overview = { overview } posterPath = { poster_path } title = { title } />
+        );
 
         return (
             <div className = { Styles.CinemaListWrapper }>
@@ -64,19 +74,7 @@ export default class CinemaList extends Component {
                 </div>
                 <div className = { AppStyles.content }>
                     <section className = { Styles.CinemaList }>
-                        {films.map( function( {
-                            title, id, overview, poster_path, release_date, vote_average
-                        } ) {
-                            return <Cinema
-                                id = { id }
-                                overview = { overview }
-                                posterPath = { poster_path }
-                                releaseDate = { release_date }
-                                title = { title }
-                                voteAverage = { vote_average }
-                            />;
-                        })
-                        }
+                        { filmList }
                     </section>
                 </div>
             </div>
