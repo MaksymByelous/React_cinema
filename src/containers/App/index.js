@@ -1,7 +1,7 @@
 // Core
 import React, { Component } from 'react';
-// import { CSSTransition, Transition, TransitionGroup } from 'react-transition-group';
-// cinema
+import { CSSTransition, Transition, TransitionGroup } from 'react-transition-group';
+import { fromTo } from 'gsap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CinemaList from '../../components/CinemaList';
@@ -16,6 +16,8 @@ export default class App extends Component {
         this.showDetails = this._showDetails.bind(this);
         this.closeDetails = this._closeDetails.bind(this);
         this.addToMy = this._addToMy.bind(this);
+        this.handleCinemaDetailsAppear = this._handleCinemaDetailsAppear.bind(this);
+        this.handleCinemaDetailsDisappear = this._handleCinemaDetailsDisappear.bind(this);
     }
     state = {
         details:    false,
@@ -37,6 +39,22 @@ export default class App extends Component {
             details: false
         }));
     }
+    _handleCinemaDetailsAppear (cinemaDetails) {
+        fromTo(
+            cinemaDetails,
+            1,
+            { x: -300, opacity: 0 },
+            { x: 0, opacity: 1, onComplete: () => setTimeout(this.handlePostmanDisappear, 2000) }
+        );
+    }
+    _handleCinemaDetailsDisappear (cinemaDetails) {
+        fromTo(
+            cinemaDetails,
+            2,
+            { x: 0, opacity: 1 },
+            { x: -300, opacity: 0 }
+        );
+    }
 
     _addToMy (film) {
         this.setState(({ favorites }) => ({
@@ -47,13 +65,20 @@ export default class App extends Component {
     render () {
         const { details, favorites, title, overview, posterPath } = this.state;
         const showCinemaDetails = details
-            ? <CinemaDetails
-                addToMy = { this.addToMy }
-                closeDetails = { this.closeDetails }
-                overview = { overview }
-                posterPath = { posterPath }
-                title = { title }
-            />
+            ? <Transition
+                appear
+                in
+                timeout = { 2000 }
+                onEnter = { this.handleCinemaDetailsAppear }
+                onExit = { this.handleCinemaDetailsDisappear }>
+                <CinemaDetails
+                    addToMy = { this.addToMy }
+                    closeDetails = { this.closeDetails }
+                    overview = { overview }
+                    posterPath = { posterPath }
+                    title = { title }
+                />
+            </Transition>
 
             : null;
 
