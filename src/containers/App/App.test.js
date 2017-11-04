@@ -7,7 +7,6 @@ import { addToMy, closeDetails } from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// const { firstName, lastName, avatar } = options;
 const newMovie = { title: 'mike' };
 const state = {
     details:    true,
@@ -49,48 +48,5 @@ describe('App:', () => {
         changeDetailsStateToFalse();
         expect(result.state()).toEqual(mutatedState);
     });
-
-    // test('should have valid initial state', () => {
-    //     expect(result.state()).toEqual(state);
-    // });
-
-    // test('should have textarea empty string', () => {
-    //     expect(result.find('textarea').text()).toEqual('');
-    // });
-
-    // test('should respond to state change', () => {
-    //     result.setState(() => ({
-    //         textAreaValue: message
-    //     }));
-
-    //     expect(result.state()).toEqual(mutatedState);
-    //     expect(result.find('textarea').text()).toEqual(message);
-
-    //     result.setState(() => ({
-    //         textAreaValue: ''
-    //     }));
-
-    //     expect(result.state()).toEqual(state);
-    //     expect(result.find('textarea').text()).toEqual('');
-
-    // });
-
-    // test('component state and textarea value reflect changes in input', () => {
-    //     result.find('textarea').simulate('change', {
-    //         target: {
-    //             value: message
-    //         }
-    //     });
-    //     expect(result.state()).toEqual(mutatedState);
-    //     expect(result.find('textarea').text()).toEqual(message);
-
-    // });
-
-    // test('component state and textarea value reflect changes if submit', () => {
-    //     result.find('form').simulate('submit');
-
-    //     expect(result.state()).toEqual(state);
-
-    // });
 
 });

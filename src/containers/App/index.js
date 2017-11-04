@@ -67,10 +67,10 @@ export default class App extends Component {
         const showCinemaDetails = details
             ? <Transition
                 appear
-                in
-                timeout = { 2000 }
+                in = { this.state.details }
+                timeout = { 1000 }
                 onEnter = { this.handleCinemaDetailsAppear }
-                onExit = { this.handleCinemaDetailsDisappear }>
+                onExit = { this.handleCinemaDetailsDisappear } >
                 <CinemaDetails
                     addToMy = { this.addToMy }
                     closeDetails = { this.closeDetails }
