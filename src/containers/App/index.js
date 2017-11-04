@@ -1,6 +1,6 @@
 // Core
 import React, { Component } from 'react';
-import { CSSTransition, Transition, TransitionGroup } from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import { fromTo } from 'gsap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -44,13 +44,13 @@ export default class App extends Component {
             cinemaDetails,
             1,
             { x: -300, opacity: 0 },
-            { x: 0, opacity: 1, onComplete: () => setTimeout(this.handlePostmanDisappear, 2000) }
+            { x: 0, opacity: 1 }
         );
     }
     _handleCinemaDetailsDisappear (cinemaDetails) {
         fromTo(
             cinemaDetails,
-            2,
+            1,
             { x: 0, opacity: 1 },
             { x: -300, opacity: 0 }
         );

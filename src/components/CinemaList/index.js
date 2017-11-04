@@ -10,7 +10,7 @@ const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=ebea8cfca
 
 export default class CinemaList extends Component {
 
-    static propsTypes = {
+    static propTypes = {
         showDetails: func.isRequired
     }
 
