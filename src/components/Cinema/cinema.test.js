@@ -8,7 +8,7 @@ import { openDetails } from './';
 Enzyme.configure({ adapter: new Adapter() });
 const openFunc = openDetails;
 const result = mount(
-    <Cinema/>,
+    <Cinema />,
     {}
 );
 

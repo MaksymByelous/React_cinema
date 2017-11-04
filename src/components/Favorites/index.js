@@ -5,7 +5,7 @@ import { array } from 'prop-types';
 
 
 export default class CinemaList extends Component {
-    static propsTypes = {
+    static propTypes = {
         favorites: array.isRequired
     }
 

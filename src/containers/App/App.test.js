@@ -3,7 +3,7 @@ import Enzyme from 'enzyme';
 import { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from './';
-import { addToMy, closeDetails } from './'
+import { addToMy, closeDetails } from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -25,13 +25,13 @@ const mutatedState = {
 };
 
 const result = mount(
-    <App/>,
+    <App />,
     {}
 );
 
 describe('App:', () => {
     test('should have CinemaList element', () => {
-        expect(result.find('CinemaList')).toHaveLength(!0);
+        expect((result.find('CinemaList')).length).toBe(2);
     });
 
     test('should add one movie to favorites', () => {
