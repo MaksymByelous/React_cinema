@@ -67,7 +67,7 @@ export default class App extends Component {
         const showCinemaDetails = details
             ? <Transition
                 appear
-                in = { this.state.details }
+                in = { details }
                 timeout = { 1000 }
                 onEnter = { this.handleCinemaDetailsAppear }
                 onExit = { this.handleCinemaDetailsDisappear } >
@@ -79,14 +79,26 @@ export default class App extends Component {
                     title = { title }
                 />
             </Transition>
-
-            : null;
+            : true;
 
         return (
             <div>
                 <Header />
                 <CinemaList showDetails = { this.showDetails } />
                 { showCinemaDetails }
+                {/* <Transition
+                    in = { this.state.details }
+                    timeout = { 1000 }
+                    onEnter = { this.handleCinemaDetailsAppear }
+                    onExit = { this.handleCinemaDetailsDisappear } >
+                    <CinemaDetails
+                        addToMy = { this.addToMy }
+                        closeDetails = { this.closeDetails }
+                        overview = { overview }
+                        posterPath = { posterPath }
+                        title = { title }
+                    />
+                </Transition> */}
                 <Favorites favorites = { favorites } />
                 <Footer />
             </div>
