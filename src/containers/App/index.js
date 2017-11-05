@@ -22,9 +22,9 @@ export default class App extends Component {
     state = {
         details:    false,
         favorites:  [],
-        overview:   'overview',
-        posterPath: 'posterPath',
-        title:      'hi max!'
+        overview:   '',
+        posterPath: '',
+        title:      ''
     }
     _showDetails (overview, posterPath, title) {
         this.setState(() => ({
@@ -63,34 +63,17 @@ export default class App extends Component {
     }
 
     render () {
-        const { details, favorites, title, overview, posterPath } = this.state;
-        const showCinemaDetails = details
-            ? <Transition
-                appear
-                in = { details }
-                timeout = { 1000 }
-                onEnter = { this.handleCinemaDetailsAppear }
-                onExit = { this.handleCinemaDetailsDisappear } >
-                <CinemaDetails
-                    addToMy = { this.addToMy }
-                    closeDetails = { this.closeDetails }
-                    overview = { overview }
-                    posterPath = { posterPath }
-                    title = { title }
-                />
-            </Transition>
-            : true;
+        const { details, favorites, title, overview, posterPath } = this.state
 
         return (
             <div>
                 <Header />
                 <CinemaList showDetails = { this.showDetails } />
-                { showCinemaDetails }
-                {/* <Transition
-                    in = { this.state.details }
-                    timeout = { 1000 }
+                <Transition
+                    in = { details }
+                    timeout = { 2000 }
                     onEnter = { this.handleCinemaDetailsAppear }
-                    onExit = { this.handleCinemaDetailsDisappear } >
+                    onExit = { this.handleCinemaDetailsDisappear }>
                     <CinemaDetails
                         addToMy = { this.addToMy }
                         closeDetails = { this.closeDetails }
@@ -98,7 +81,7 @@ export default class App extends Component {
                         posterPath = { posterPath }
                         title = { title }
                     />
-                </Transition> */}
+                </Transition>
                 <Favorites favorites = { favorites } />
                 <Footer />
             </div>

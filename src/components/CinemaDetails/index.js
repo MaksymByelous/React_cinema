@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
 import { string, func } from 'prop-types';
+import moonIcon from '../../theme/assets/moon-icon.png';
 
 export default class CinemaDetails extends Component {
 
@@ -27,6 +28,13 @@ export default class CinemaDetails extends Component {
 
     render () {
         const { closeDetails, overview, posterPath, title } = this.props;
+        const isPoster =
+            posterPath.length > 0
+                ? <img
+                    src = { `http://image.tmdb.org/t/p/w342${posterPath}` }
+                    onClick = { this.openDetails }
+                />
+                : moonIcon;
 
         return (
             <section className = { Styles.cinemaDetails }>
@@ -37,10 +45,7 @@ export default class CinemaDetails extends Component {
                     </div>
                     <div className = { Styles.flexWrap }>
                         <div className = { Styles.posterWrapper }>
-                            <img
-                                src = { `http://image.tmdb.org/t/p/w342${posterPath}` }
-                                onClick = { this.openDetails }
-                            />
+                            { isPoster }
                         </div>
                         <div className = { Styles.textWrapper }>
                             <h3> { title } </h3>
