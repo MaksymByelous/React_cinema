@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`favorites should correspond to snapshot 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <h3>
+      My favorites
+    </h3>
+    <ul>
+      <li>
+         
+         
+      </li>
+      <li>
+         
+         
+      </li>
+    </ul>
+  </div>
+</div>
+`;
