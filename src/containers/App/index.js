@@ -22,9 +22,9 @@ export default class App extends Component {
     state = {
         details:    false,
         favorites:  [],
-        overview:   'overview',
-        posterPath: 'posterPath',
-        title:      'hi max!'
+        overview:   '',
+        posterPath: '',
+        title:      ''
     }
     _showDetails (overview, posterPath, title) {
         this.setState(() => ({
@@ -64,29 +64,24 @@ export default class App extends Component {
 
     render () {
         const { details, favorites, title, overview, posterPath } = this.state;
-        const showCinemaDetails = details
-            ? <Transition
-                appear
-                in
-                timeout = { 2000 }
-                onEnter = { this.handleCinemaDetailsAppear }
-                onExit = { this.handleCinemaDetailsDisappear }>
-                <CinemaDetails
-                    addToMy = { this.addToMy }
-                    closeDetails = { this.closeDetails }
-                    overview = { overview }
-                    posterPath = { posterPath }
-                    title = { title }
-                />
-            </Transition>
-
-            : null;
 
         return (
             <div>
                 <Header />
                 <CinemaList showDetails = { this.showDetails } />
-                { showCinemaDetails }
+                <Transition
+                    in = { details }
+                    timeout = { 2000 }
+                    onEnter = { this.handleCinemaDetailsAppear }
+                    onExit = { this.handleCinemaDetailsDisappear }>
+                    <CinemaDetails
+                        addToMy = { this.addToMy }
+                        closeDetails = { this.closeDetails }
+                        overview = { overview }
+                        posterPath = { posterPath }
+                        title = { title }
+                    />
+                </Transition>
                 <Favorites favorites = { favorites } />
                 <Footer />
             </div>

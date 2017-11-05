@@ -1,8 +1,8 @@
 .cinemaDetails {
     background: rgba(71, 78, 90, 0.9);
-    position: absolute;
+    position: fixed;
     top: 55px;
-    left: 0;
+    transform: translateX(-300%);
     width: 100%;
     color: white;
     // height: 100vh;
