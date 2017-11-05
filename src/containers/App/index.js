@@ -63,7 +63,7 @@ export default class App extends Component {
     }
 
     render () {
-        const { details, favorites, title, overview, posterPath } = this.state;
+        const { details, favorites, title, overview, posterPath } = this.state
 
         return (
             <div>
