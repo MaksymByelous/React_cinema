@@ -56,10 +56,10 @@ export default class CinemaList extends Component {
                 return response.json();
             })
             .then(({ results }) => {
-                this.loaderOff();
                 this.setState(() => ({
                     films: results
                 }));
+                this.loaderOff();
             })
             .catch(({ massage }) => console.error(massage));
     }
