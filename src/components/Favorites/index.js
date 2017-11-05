@@ -12,8 +12,8 @@ export default class CinemaList extends Component {
     render () {
         const { favorites } = this.props;
         const favoritesList = favorites.map(
-            (data, index) =>
-                <li key = { index }> { data.title } </li>
+            ({ id, title }) =>
+                <li key = { id }> { title } </li>
         );
 
         return (
