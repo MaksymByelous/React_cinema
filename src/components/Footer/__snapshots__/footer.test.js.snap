@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`counter should correspond to snapshot 1`] = `
+exports[`footer should correspond to snapshot 1`] = `
 <footer>
   Movies database, 2017
 </footer>

@@ -18,7 +18,7 @@ describe('Cinema:', () => {
     });
 
     test('openDetails should be function', () => {
-        expect(typeof openFunc).toBe('function');
+        expect(typeof result.instance().openDetails).toBe('function');
     });
 
 });

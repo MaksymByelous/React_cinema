@@ -7,7 +7,7 @@ const renderTree = dom.create(
 ).toJSON();
 
 test(
-    'counter should correspond to snapshot', () => {
+    'footer should correspond to snapshot', () => {
         expect(renderTree).toMatchSnapshot();
     }
 );

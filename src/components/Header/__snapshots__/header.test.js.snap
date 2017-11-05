@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`counter should correspond to snapshot 1`] = `
+exports[`header should correspond to snapshot 1`] = `
 <header>
   <div
     className={undefined}

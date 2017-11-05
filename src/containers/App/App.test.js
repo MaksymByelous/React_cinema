@@ -34,19 +34,13 @@ describe('App:', () => {
     });
 
     test('should add one movie to favorites', () => {
-        function addOneToFavorites () {
-            addToMy(newMovie);
-        }
-        addOneToFavorites();
-        expect(this.state.favorites.length).toBe(1);
+        result.instance().addToMy(newMovie);
+        expect(result.state().favorites.length).toBe(1);
     });
 
     test('should change state details to false', () => {
-        function changeDetailsStateToFalse () {
-            closeDetails();
-        }
-        changeDetailsStateToFalse();
-        expect(result.state()).toEqual(mutatedState);
+        result.instance().closeDetails();
+        expect(result.state().details).toEqual(mutatedState.details);
     });
 
 });

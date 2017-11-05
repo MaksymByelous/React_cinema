@@ -46,7 +46,7 @@ export default class CinemaList extends Component {
                     films: results
                 }));
             })
-            .catch(({ massage }) => console.log(massage));
+            .catch(({ massage }) => console.error(massage));
     }
 
     _getLatest () {
