@@ -13,19 +13,9 @@ header {
         justify-content: space-between;
       }
 }
-
-// animation
-.cinemaDetailsEnter {
-    opacity: 0.01;
+.iconWrapper {
+    text-align: center;
 }
-.cinemaDetailsEnter.cinemaDetailsEnterActive {
-    opacity: 1;
-    transition: opacity 2000ms ease-in;
-}
-.cinemaDetailsExit {
-    opacity: 1;
-}
-.cinemaDetailsExitActive {
-    opacity: 0.01;
-    transition: opacity 2000ms ease-in;
+.blue {
+    color: rgb(0, 132, 255);
 }

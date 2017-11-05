@@ -3,6 +3,7 @@ import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
 import { func } from 'prop-types';
 import Cinema from '../../components/Cinema';
+import { Icon } from 'react-fa';
 
 
 const apiNew = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
@@ -19,18 +20,31 @@ export default class CinemaList extends Component {
         this.getFilms = this._getFilms.bind(this);
         this.getLatest = this._getLatest.bind(this);
         this.getPopular = this._getPopular.bind(this);
+        this.loaderOn = this._loaderOn.bind(this);
+        this.loaderOff = this._loaderOff.bind(this);
     }
 
     state = {
-        films: [],
-        base:  'latest'
+        films:   [],
+        base:    'latest',
+        loading: false
     }
 
     componentWillMount () {
         this.getLatest();
     }
-
+    _loaderOn () {
+        this.setState(() => ({
+            loading: true
+        }));
+    }
+    _loaderOff () {
+        this.setState(() => ({
+            loading: false
+        }));
+    }
     _getFilms (direction) {
+        this.loaderOn();
         fetch(direction, {
             method: 'GET'
         })
@@ -42,6 +56,7 @@ export default class CinemaList extends Component {
                 return response.json();
             })
             .then(({ results }) => {
+                this.loaderOff();
                 this.setState(() => ({
                     films: results
                 }));
@@ -66,10 +81,20 @@ export default class CinemaList extends Component {
 
     render () {
         const { showDetails } = this.props;
-        const { films } = this.state;
+        const { films, loading } = this.state;
         const filmList = films.map(({ title, id, overview, poster_path }) =>
             <Cinema key = { id } overview = { overview } posterPath = { poster_path } showDetails = { showDetails } title = { title } />
         );
+        const loader = loading
+            ? <div className = { AppStyles.iconWrapper }>
+                <Icon
+                    spin
+                    className = { AppStyles.blue }
+                    name = 'refresh'
+                    size = '5x'
+                />
+            </div>
+            : null;
 
         return (
             <div className = { Styles.CinemaListWrapper }>
@@ -77,6 +102,7 @@ export default class CinemaList extends Component {
                     <button onClick = { this.getLatest }> Latest </button>
                     <button onClick = { this.getPopular }>Popular</button>
                 </div>
+                { loader }
                 <div className = { AppStyles.content }>
                     <section className = { Styles.CinemaList }>
                         { filmList }

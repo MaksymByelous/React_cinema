@@ -9,7 +9,6 @@ import CinemaDetails from '../../components/CinemaDetails';
 import Favorites from '../../components/Favorites';
 import { getUniqueID } from '../../helpers';
 
-
 export default class App extends Component {
 
     constructor () {
@@ -92,6 +91,7 @@ export default class App extends Component {
         return (
             <div>
                 <Header />
+
                 <CinemaList showDetails = { this.showDetails } />
                 <Transition
                     in = { details }
@@ -109,7 +109,10 @@ export default class App extends Component {
                         title = { title }
                     />
                 </Transition>
-                <Favorites favorites = { favorites } />
+                <Favorites
+                    delFromMy = { this.delFromMy }
+                    favorites = { favorites }
+                />
                 <Footer />
             </div>
         );
