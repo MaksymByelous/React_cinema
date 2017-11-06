@@ -3,6 +3,7 @@ import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
 import { func } from 'prop-types';
 import Cinema from '../../components/Cinema';
+import Pagination from '../../components/Pagination';
 import { Icon } from 'react-fa';
 
 
@@ -108,6 +109,7 @@ export default class CinemaList extends Component {
                         { filmList }
                     </section>
                 </div>
+                <Pagination />
             </div>
         );
     }
