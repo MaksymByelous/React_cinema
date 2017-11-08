@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Styles from './styles.scss';
 import { string, func } from 'prop-types';
+import noPoster from '../../theme/assets/no-poster.png';
 
 export default class Cinema extends Component {
 
@@ -22,11 +23,14 @@ export default class Cinema extends Component {
 
     render () {
         const { posterPath } = this.props;
+        const poster = posterPath !== null
+            ? `http://image.tmdb.org/t/p/w342${posterPath}`
+            : noPoster;
 
         return (
             <div className = { Styles.cinema }>
                 <img
-                    src = { `http://image.tmdb.org/t/p/w342${posterPath}` }
+                    src = { poster }
                     onClick = { this.openDetails }
                 />
             </div>

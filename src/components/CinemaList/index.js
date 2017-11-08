@@ -23,6 +23,7 @@ export default class CinemaList extends Component {
         this.getPopular = this._getPopular.bind(this);
         this.loaderOn = this._loaderOn.bind(this);
         this.loaderOff = this._loaderOff.bind(this);
+        this.handlePageClick = this._handlePageClick.bind(this);
     }
 
     state = {
@@ -34,7 +35,7 @@ export default class CinemaList extends Component {
     }
 
     componentWillMount () {
-        this.getLatest();
+        this.getFilms(apiNew, 1);
     }
     _loaderOn () {
         this.setState(() => ({
@@ -91,9 +92,17 @@ export default class CinemaList extends Component {
         return this.getFilms(apiPopular, 1);
     }
 
+    _handlePageClick (pageIndex) {
+        if (this.state.base === 'latest') {
+            this.getFilms(apiNew, pageIndex);
+        } else {
+            this.getFilms(apiPopular, pageIndex);
+        }
+    }
+
     render () {
         const { showDetails } = this.props;
-        const { films, loading, totalPages } = this.state;
+        const { films, loading, totalPages, base } = this.state;
         const filmList = films.map(({ title, id, overview, poster_path }) =>
             <Cinema key = { id } overview = { overview } posterPath = { poster_path } showDetails = { showDetails } title = { title } />
         );
@@ -120,7 +129,7 @@ export default class CinemaList extends Component {
                         { filmList }
                     </section>
                 </div>
-                <Pagination totalPages = { totalPages } />
+                <Pagination base = { base } handlePageClick = { this.handlePageClick } totalPages = { totalPages } />
             </div>
         );
     }
