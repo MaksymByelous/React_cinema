@@ -3,11 +3,12 @@ import Styles from './styles.scss';
 import AppStyles from '../../containers/App/styles.scss';
 import { func } from 'prop-types';
 import Cinema from '../../components/Cinema';
+import Pagination from '../../components/Pagination';
 import { Icon } from 'react-fa';
 
 
-const apiNew = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
-const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
+const apiNew = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=';
+const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=';
 
 export default class CinemaList extends Component {
 
@@ -22,16 +23,19 @@ export default class CinemaList extends Component {
         this.getPopular = this._getPopular.bind(this);
         this.loaderOn = this._loaderOn.bind(this);
         this.loaderOff = this._loaderOff.bind(this);
+        this.handlePageClick = this._handlePageClick.bind(this);
     }
 
     state = {
-        films:   [],
-        base:    'latest',
-        loading: false
+        films:      [],
+        base:       'latest',
+        activePage: 1,
+        totalPages: 0,
+        loading:    false
     }
 
     componentWillMount () {
-        this.getLatest();
+        this.getFilms(apiNew, 1);
     }
     _loaderOn () {
         this.setState(() => ({
@@ -43,9 +47,9 @@ export default class CinemaList extends Component {
             loading: false
         }));
     }
-    _getFilms (direction) {
+    _getFilms (direction, page) {
         this.loaderOn();
-        fetch(direction, {
+        fetch(direction + page, {
             method: 'GET'
         })
             .then((response) => {
@@ -54,6 +58,13 @@ export default class CinemaList extends Component {
                 }
 
                 return response.json();
+            })
+            .then((response) => {
+                this.setState(() => ({
+                    totalPages: response.total_pages
+                }));
+
+                return response;
             })
             .then(({ results }) => {
                 this.setState(() => ({
@@ -66,22 +77,32 @@ export default class CinemaList extends Component {
 
     _getLatest () {
         this.setState(() => ({
-            base: 'latest'
+            base:       'latest',
+            activePage: 1
         }));
 
-        return this.getFilms(apiNew);
+        return this.getFilms(apiNew, 1);
     }
     _getPopular () {
         this.setState(() => ({
-            base: 'popular'
+            base:       'popular',
+            activePage: 1
         }));
 
-        return this.getFilms(apiPopular);
+        return this.getFilms(apiPopular, 1);
+    }
+
+    _handlePageClick (pageIndex) {
+        if (this.state.base === 'latest') {
+            this.getFilms(apiNew, pageIndex);
+        } else {
+            this.getFilms(apiPopular, pageIndex);
+        }
     }
 
     render () {
         const { showDetails } = this.props;
-        const { films, loading } = this.state;
+        const { films, loading, totalPages, base } = this.state;
         const filmList = films.map(({ title, id, overview, poster_path }) =>
             <Cinema key = { id } overview = { overview } posterPath = { poster_path } showDetails = { showDetails } title = { title } />
         );
@@ -108,6 +129,7 @@ export default class CinemaList extends Component {
                         { filmList }
                     </section>
                 </div>
+                <Pagination base = { base } handlePageClick = { this.handlePageClick } totalPages = { totalPages } />
             </div>
         );
     }

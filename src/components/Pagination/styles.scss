@@ -1,0 +1,14 @@
+.pagination {
+    padding: 20px 10px;
+    .flexContainer {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: stretch;
+        .flexPage {
+            display: flex;
+            margin: 5px;
+            background: green;
+            color: white;
+        }
+    }
+}
